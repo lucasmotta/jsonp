@@ -1,0 +1,15 @@
+{
+  "name": "jsonp",
+  "repo": "learnboost/jsonp",
+  "description": "A sane JSONP implementation.",
+  "keywords": ["jsonp", "client", "json"],
+  "version": "0.0.4",
+  "ignore": [
+    ".gitignore",
+    "component.json",
+    "History.md",
+    "package.json",
+    "Readme.md"
+  ],
+  "main": "index.js"
+}
