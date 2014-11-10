@@ -1,10 +1,4 @@
 /**
- * Module dependencies
- */
-
-var debug = require('debug')('jsonp');
-
-/**
  * Module exports.
  */
 
@@ -60,19 +54,12 @@ function jsonp(url, opts, fn){
   }
 
   function cleanup(){
-    if (script.parentNode) script.parentNode.removeChild(script);
+    script.parentNode.removeChild(script);
     window[id] = noop;
-    if (timer) clearTimeout(timer);
-  }
-
-  function cancel(){
-    if (window[id]) {
-      cleanup();
-    }
   }
 
   window[id] = function(data){
-    debug('jsonp got', data);
+    if (timer) clearTimeout(timer);
     cleanup();
     if (fn) fn(null, data);
   };
@@ -81,12 +68,8 @@ function jsonp(url, opts, fn){
   url += (~url.indexOf('?') ? '&' : '?') + param + '=' + enc(id);
   url = url.replace('?&', '?');
 
-  debug('jsonp req "%s"', url);
-
   // create script
   script = document.createElement('script');
   script.src = url;
   target.parentNode.insertBefore(script, target);
-
-  return cancel;
 }
