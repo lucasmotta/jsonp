@@ -3,7 +3,7 @@
   "repo": "learnboost/jsonp",
   "description": "A sane JSONP implementation.",
   "keywords": ["jsonp", "client", "json"],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "ignore": [
     ".gitignore",
     "component.json",
